@@ -208,6 +208,7 @@ query GetToy($toyId: ID!) {
 }
 
 ```
+El ! indica que ese campo siempre será obligatorio
 
 El servidor usaría este toyId y te devolvería el juguete con el ID 1.
 
