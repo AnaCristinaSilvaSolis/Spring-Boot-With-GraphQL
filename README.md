@@ -20,7 +20,7 @@ quitar del pom la dependencia de spring-webflux porque no usaremos programacion 
 
 http://localhost:8080/graphiql
 
-![ejemplo](image.png)
+![ejemplo de traer estudiantes](image.png)
 
 # import.sql
 
