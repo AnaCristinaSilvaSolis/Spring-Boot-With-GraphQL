@@ -1,7 +1,6 @@
 package com.graphql.example.springbootgraphql.service;
 
 import java.util.*;
-import org.springframework.stereotype.Service;
 
 import com.graphql.example.springbootgraphql.entities.Student;
 
