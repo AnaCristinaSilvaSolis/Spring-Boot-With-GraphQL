@@ -16,6 +16,12 @@ quitar del pom la dependencia de spring-webflux porque no usaremos programacion 
 - un alumno solo puede tener 1 curso a la vez
 - un curso puede tener varios estudiantes
 
+# rutas
+
+http://localhost:8080/graphiql
+
+![ejemplo](image.png)
+
 # import.sql
 
 en este archivo iran las querys de la BD

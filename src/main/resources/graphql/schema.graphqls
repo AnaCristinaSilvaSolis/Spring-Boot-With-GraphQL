@@ -1,0 +1,11 @@
+# Query -> me sirve solo para hacer consultas
+type Query {
+  findStudentById(studentId: String): Student
+}
+
+type Student {
+  id: ID
+  name: String
+  last_name: String
+  age: Int
+}
