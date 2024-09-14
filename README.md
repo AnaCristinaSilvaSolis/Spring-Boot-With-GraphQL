@@ -20,7 +20,20 @@ quitar del pom la dependencia de spring-webflux porque no usaremos programacion 
 
 http://localhost:8080/graphiql
 
+traer
 ![ejemplo de traer estudiantes](image.png)
+
+listar
+![img.png](img.png)
+
+crear
+![img_1.png](img_1.png)
+
+eliminar
+![img_2.png](img_2.png)
+
+con relaciones 
+![img_3.png](img_3.png)
 
 # import.sql
 
@@ -43,8 +56,8 @@ información de una vez (aunque no la necesites), le pides al servidor solo lo q
 - **Types**: Son un conjunto de fields que componen un tipo de objeto de consulta.
 
 * **Consulta** (Query): Esto es como hacer tu pedido en el restaurante. Dices exactamente lo que quieres y te lo traen.
-* **Mutación** (Mutation): Aquí es donde no solo pides datos, sino que también puedes cambiar algo, como añadir un nuevo plato
-  al menú.
+* **Mutación** (Mutation): Aquí es donde no solo pides datos, sino que también puedes cambiar algo, como añadir un nuevo
+  plato al menú.
 * **Tipos** (Types): Los datos en GraphQL tienen "tipos". Es como decir que una pizza tiene una forma, ingredientes y un
   tamaño específico. Cada dato tiene un "tipo" para describirlo.
 
@@ -78,7 +91,8 @@ type Car {
 
 ## Scalar Types (Tipos Escalares)
 
-Los tipos escalares son los datos más simples en GraphQL. Son como bloques de construcción básicos, como números o texto. Los tipos escalares nos permiten manejar datos sencillos que usamos todo el tiempo.
+Los tipos escalares son los datos más simples en GraphQL. Son como bloques de construcción básicos, como números o
+texto. Los tipos escalares nos permiten manejar datos sencillos que usamos todo el tiempo.
 
 - **Int**: Un número entero (ej: 1, 2, 3).
 - **Float**: números con signo y punto flotante
@@ -99,7 +113,9 @@ Aquí, name es un String, price es un Float o Int, y id es un ID.
 
 ## Arguments
 
-En GraphQL, los argumentos son como detalles que le damos al servidor para obtener exactamente lo que queremos. Es como decir: “Quiero una pizza grande con mucho queso”. Aquí, "grande" y "con mucho queso" son argumentos que detallan tu pedido.
+En GraphQL, los argumentos son como detalles que le damos al servidor para obtener exactamente lo que queremos. Es como
+decir: “Quiero una pizza grande con mucho queso”. Aquí, "grande" y "con mucho queso" son argumentos que detallan tu
+pedido.
 
 Ejemplo con Argumentos
 Si queremos información de un juguete específico, podríamos pedirlo usando su ID como argumento.
@@ -116,7 +132,9 @@ Si queremos información de un juguete específico, podríamos pedirlo usando su
 ¡Vamos a seguir aprendiendo sobre GraphQL de manera sencilla! 🌟
 
 1. Arguments (Argumentos)
-   En GraphQL, los argumentos son como detalles que le damos al servidor para obtener exactamente lo que queremos. Es como decir: “Quiero una pizza grande con mucho queso”. Aquí, "grande" y "con mucho queso" son argumentos que detallan tu pedido.
+   En GraphQL, los argumentos son como detalles que le damos al servidor para obtener exactamente lo que queremos. Es
+   como decir: “Quiero una pizza grande con mucho queso”. Aquí, "grande" y "con mucho queso" son argumentos que detallan
+   tu pedido.
 
 Ejemplo con Argumentos
 Si queremos información de un juguete específico, podríamos pedirlo usando su ID como argumento.
@@ -129,11 +147,13 @@ name
 price
 }
 }
-En este caso, id: 1 es el argumento que estamos dando. Le estamos diciendo al servidor: "Dame el juguete con el ID número 1".
+En este caso, id: 1 es el argumento que estamos dando. Le estamos diciendo al servidor: "Dame el juguete con el ID
+número 1".
 
 ## Aliases
 
-Los alias son como cuando tienes dos amigos llamados "Ana". Para diferenciarlas, las llamas "Ana la Grande" y "Ana la Pequeña". Un alias te permite cambiar el nombre de los datos para que no haya confusión.
+Los alias son como cuando tienes dos amigos llamados "Ana". Para diferenciarlas, las llamas "Ana la Grande" y "Ana la
+Pequeña". Un alias te permite cambiar el nombre de los datos para que no haya confusión.
 
 Ejemplo con Alias
 Supongamos que quieres ver el nombre de dos juguetes, pero quieres llamarlos de forma diferente.
@@ -162,12 +182,16 @@ también pueden ser usados en fields para renombrar la llave de salida de la inf
 
 ## Fragments
 
-Imagina que siempre pides lo mismo en tu restaurante favorito: una pizza con mucho queso y pepperoni. En lugar de repetir tu pedido completo cada vez, puedes darle al mesero una "nota" donde ya esté todo escrito. ¡Eso es un fragmento en GraphQL!
+Imagina que siempre pides lo mismo en tu restaurante favorito: una pizza con mucho queso y pepperoni. En lugar de
+repetir tu pedido completo cada vez, puedes darle al mesero una "nota" donde ya esté todo escrito. ¡Eso es un fragmento
+en GraphQL!
 
-Un fragmento te permite reutilizar una parte de una consulta muchas veces. Así no tienes que repetir lo mismo una y otra vez.
+Un fragmento te permite reutilizar una parte de una consulta muchas veces. Así no tienes que repetir lo mismo una y otra
+vez.
 
 Ejemplo con Fragmentos
-Digamos que tienes un juguete y siempre quieres ver su nombre y precio. En lugar de escribir esa información cada vez, usas un fragmento.
+Digamos que tienes un juguete y siempre quieres ver su nombre y precio. En lugar de escribir esa información cada vez,
+usas un fragmento.
 
 ```gql
 fragment ToyInfo on Toy {
@@ -195,7 +219,8 @@ fragment ToyInfo on Toy {
 
 ## Variables
 
-Imagina que en el restaurante te preguntan si quieres tu pizza grande o pequeña. Puedes decidir en ese momento. Variables en GraphQL te permiten hacer eso: cambias algo en la consulta dependiendo de lo que necesites en el momento.
+Imagina que en el restaurante te preguntan si quieres tu pizza grande o pequeña. Puedes decidir en ese momento.
+Variables en GraphQL te permiten hacer eso: cambias algo en la consulta dependiendo de lo que necesites en el momento.
 
 Ejemplo con Variables
 En lugar de escribir el número de identificación del juguete (por ejemplo, id: 1), podemos usar una variable.
@@ -214,6 +239,7 @@ query GetToy($toyId: ID!) {
 }
 
 ```
+
 El ! indica que ese campo siempre será obligatorio
 
 El servidor usaría este toyId y te devolvería el juguete con el ID 1.
@@ -296,7 +322,9 @@ Si la condición de @skip es true, el servidor no mostrará el precio.
 
 ## Mutations
 
-Las mutaciones son como pedir al servidor que haga cambios en los datos. Por ejemplo, si queremos añadir un nuevo juguete a nuestra tienda, usamos una mutación. Piensa en las mutaciones como pedir algo extra, como agregar ingredientes a tu pizza o pedir más juguetes en una tienda.
+Las mutaciones son como pedir al servidor que haga cambios en los datos. Por ejemplo, si queremos añadir un nuevo
+juguete a nuestra tienda, usamos una mutación. Piensa en las mutaciones como pedir algo extra, como agregar ingredientes
+a tu pizza o pedir más juguetes en una tienda.
 
 Ejemplo de Mutación
 Vamos a agregar un nuevo juguete llamado "Avión" a nuestra tienda:
@@ -323,7 +351,8 @@ mutation {
 
 ## Object Type Field (Campo de Tipo Objeto)
 
-En GraphQL, los datos pueden ser más complejos que solo texto o números. Los campos de tipo objeto te permiten obtener datos relacionados. Es como si pidieras no solo tu pizza, sino también una bebida que viene junto con ella.
+En GraphQL, los datos pueden ser más complejos que solo texto o números. Los campos de tipo objeto te permiten obtener
+datos relacionados. Es como si pidieras no solo tu pizza, sino también una bebida que viene junto con ella.
 
 Ejemplo
 Imagina que un juguete tiene un fabricante, que también tiene información propia:
@@ -402,7 +431,8 @@ tipo.
 
 ## Operaciones Nombradas (Named Operations)
 
-A veces es útil darle un nombre a tu consulta o mutación, especialmente si quieres ejecutarla varias veces o identificarla fácilmente. Es como ponerle un nombre a tu pedido favorito en el restaurante.
+A veces es útil darle un nombre a tu consulta o mutación, especialmente si quieres ejecutarla varias veces o
+identificarla fácilmente. Es como ponerle un nombre a tu pedido favorito en el restaurante.
 
 ```gql
 query GetToyById {
@@ -428,7 +458,8 @@ Aquí hemos nombrado la operación como GetToyById. Esto es útil para saber qu�
 
 ### Enum Types (Tipos enumerados)
 
-Un tipo enumerado (enum) define un conjunto de valores posibles para un campo. Esto es útil cuando un campo solo puede tener algunos valores específicos, como una lista de categorías o estados.
+Un tipo enumerado (enum) define un conjunto de valores posibles para un campo. Esto es útil cuando un campo solo puede
+tener algunos valores específicos, como una lista de categorías o estados.
 
 Ejemplo de tipo enumerado:
 
@@ -446,11 +477,14 @@ type Toy {
 }
 ```
 
-En este ejemplo, el campo category solo puede ser uno de los valores de ToyCategory (ACTION_FIGURE, BOARD_GAME, o PLUSH).
+En este ejemplo, el campo category solo puede ser uno de los valores de ToyCategory (ACTION_FIGURE, BOARD_GAME, o
+PLUSH).
 
 ### Input Types (Tipos de entrada)
 
-Los tipos de entrada se utilizan en las mutaciones para enviar datos al servidor. A diferencia de los tipos de objeto, los tipos de entrada no pueden contener campos que sean otros tipos de objeto; solo pueden contener tipos escalares o listas.
+Los tipos de entrada se utilizan en las mutaciones para enviar datos al servidor. A diferencia de los tipos de objeto,
+los tipos de entrada no pueden contener campos que sean otros tipos de objeto; solo pueden contener tipos escalares o
+listas.
 
 Ejemplo de tipo de entrada:
 
@@ -473,7 +507,8 @@ En este ejemplo, el tipo de entrada AddToyInput se utiliza en la mutación para 
 
 ### List Types (Tipos de lista)
 
-Un tipo de lista es un conjunto de elementos del mismo tipo. Puedes tener listas de tipos escalares o listas de tipos de objeto. En GraphQL, las listas se representan con corchetes [].
+Un tipo de lista es un conjunto de elementos del mismo tipo. Puedes tener listas de tipos escalares o listas de tipos de
+objeto. En GraphQL, las listas se representan con corchetes [].
 
 Ejemplo de tipo de lista:
 
@@ -483,11 +518,13 @@ type Query {
 }
 ```
 
-Aquí, el campo toys devolverá una lista de objetos Toy. El ! después del tipo indica que la lista no puede ser null, y que cada juguete dentro de la lista también debe ser válido (no null).
+Aquí, el campo toys devolverá una lista de objetos Toy. El ! después del tipo indica que la lista no puede ser null, y
+que cada juguete dentro de la lista también debe ser válido (no null).
 
 ### Union Types (Tipos de unión)
 
-Los tipos de unión permiten que un campo devuelva uno de varios tipos de objeto. A diferencia de los interfaces, los tipos de unión no necesitan compartir campos en común.
+Los tipos de unión permiten que un campo devuelva uno de varios tipos de objeto. A diferencia de los interfaces, los
+tipos de unión no necesitan compartir campos en común.
 
 Ejemplo de tipo de unión:
 
@@ -503,7 +540,8 @@ En este caso, el campo search puede devolver una lista que contenga objetos del 
 
 ### Interface Types (Tipos de interfaz)
 
-Una interfaz define un conjunto de campos que un tipo de objeto debe implementar. Las interfaces permiten que diferentes tipos de objetos compartan campos comunes.
+Una interfaz define un conjunto de campos que un tipo de objeto debe implementar. Las interfaces permiten que diferentes
+tipos de objetos compartan campos comunes.
 
 Ejemplo de interfaz:
 
@@ -530,7 +568,8 @@ En este ejemplo, tanto Toy como Book implementan la interfaz Product, por lo que
 
 ### Non-null Types (Tipos no nulos)
 
-Los tipos no nulos son tipos que no pueden tener un valor null. Esto se indica añadiendo un signo de exclamación (!) al final del tipo. En GraphQL, los campos son null por defecto, a menos que se especifique que son non-null.
+Los tipos no nulos son tipos que no pueden tener un valor null. Esto se indica añadiendo un signo de exclamación (!) al
+final del tipo. En GraphQL, los campos son null por defecto, a menos que se especifique que son non-null.
 
 Ejemplo:
 

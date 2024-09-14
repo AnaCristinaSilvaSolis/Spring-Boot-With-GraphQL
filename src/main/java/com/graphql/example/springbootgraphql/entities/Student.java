@@ -20,7 +20,7 @@ public class Student {
   private String name;
 
   @Column(name = "last_name")
-  private String lastName;
+  private String last_name;
   private Integer age;
 
   // LAZY nos trae la informacion solo cuando nosotros la llamemos explicitamente

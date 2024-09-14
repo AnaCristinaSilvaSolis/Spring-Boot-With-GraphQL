@@ -1,11 +1,52 @@
 # Query -> me sirve solo para hacer consultas
 type Query {
-  findStudentById(studentId: String): Student
+  # Students
+  findStudentById(studentId: String): Student,
+  findAllStudents : [Student]
+
+  # Course
+  findCourseById(courseId: String): Course,
+  findAllCourses : [Course]
 }
 
+type Mutation{
+  # Students
+  createStudent(inputStudent: InputStudent!): Student
+  deleteStudentById(studentId: String): String
+
+  # Course
+  createCourse(inputCourse: InputCourse!): Course
+  deleteCourseById(courseId: String): String
+}
+
+# definimos el tipo Student
 type Student {
   id: ID
   name: String
   last_name: String
   age: Int
+  course: Course
+}
+
+# tipo de dato de entrada
+input InputStudent{
+  name: String
+  last_name: String
+  age: Int
+  courseId: String!
+}
+
+
+# definimos el tipo Course
+type Course {
+  id: ID
+  name: String
+  category: String
+  teacher: String
+}
+
+input InputCourse{
+  name: String
+  category: String
+  teacher: String
 }
